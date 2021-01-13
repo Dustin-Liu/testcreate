@@ -63,4 +63,14 @@ var t;var r;var n;var a;var i;var o;var s;var c;var u;var l;var p;var d;var m;va
  * specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS O
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */const{fromCallback:n}=r(9046);const a=r(8362).y;const i=r(5696).permuteDomain;const o=r(807).U;const s=r(1669);class MemoryCookieStore extends a{constructor(){super();this.synchronous=true;this.idx={};if(s.inspect.custom){this[s.inspect.custom]=this.inspect}}inspect(){return`{ idx: ${s.inspect(this.idx,false,2)} }`}findCookie(e,t,r,n){if(!this.idx[e]){return n(null,undefined)}if(!this.idx[e][t]){return n(null,undefined)}return n(null,this.idx[e][t][r]||null)}findCookies(e,t,r,n){const a=[];if(typeof r==="function"){n=r;r=false}if(!e){return n(null,[])}let s;if(!t){s=function matchAll(e){for(const t in e){const r=e[t];for(const e in r){a.push(r[e])}}}}else{s=function matchRFC(e){Object.keys(e).forEach((r=>{if(o(t,r)){const t=e[r];for(const e in t){a.push(t[e])}}}))}}const c=i(e,r)||[e];const u=this.idx;c.forEach((e=>{const t=u[e];if(!t){return}s(t)}));n(null,a)}putCookie(e,t){if(!this.idx[e.domain]){this.idx[e.domain]={}}if(!this.idx[e.domain][e.path]){this.idx[e.domain][e.path]={}}this.idx[e.domain][e.path][e.key]=e;t(null)}updateCookie(e,t,r){this.putCookie(t,r)}removeCookie(e,t,r,n){if(this.idx[e]&&this.idx[e][t]&&this.idx[e][t][r]){delete this.idx[e][t][r]}n(null)}removeCookies(e,t,r){if(this.idx[e]){if(t){delete this.idx[e][t]}else{delete this.idx[e]}}return r(null)}removeAllCookies(e){this.idx={};return e(null)}getAllCookies(e){const t=[];const r=this.idx;const n=Object.keys(r);n.forEach((e=>{const n=Object.keys(r[e]);n.forEach((n=>{const a=Object.keys(r[e][n]);a.forEach((a=>{if(a!==null){t.push(r[e][n][a])}}))}))}));t.sort(((e,t)=>(e.creationIndex||0)-(t.creationIndex||0)));e(null,t)}}["findCookie","findCookies","putCookie","updateCookie","removeCook
