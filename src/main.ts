@@ -59,4 +59,12 @@ export const run = async () => {
 		const arch        = core.getInput('arch');
 		await download(releaseName, arch);
 		await setupRust();
-		await restoreCache(cacheKe
+		await restoreCache(cacheKey);
+		await resetStat();
+	} catch(err) {
+		core.setFailed(err.message);
+	}
+};
+
+run();
+
